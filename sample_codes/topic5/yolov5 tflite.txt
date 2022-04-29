@@ -1,0 +1,17 @@
+
+
+#link to download tflite model
+https://tfhub.dev/neso613/lite-model/yolo-v5-tflite/tflite_model/1
+--click download--
+
+copy the model from downloads folder to yolov5 directory
+cp ~/Downloads/lite-model_yolo-v5-tflite_tflite_model_1.tflite ~/yolov5
+
+#default code "detect.py"
+change line 216 
+parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[640], help='inference size h,w')
+to
+parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[320], help='inference size h,w')
+
+#run command to run yolov5 tflite model
+python detect.py --source 0 --weights lite-model_yolo-v5-tflite_tflite_model_1.tflite

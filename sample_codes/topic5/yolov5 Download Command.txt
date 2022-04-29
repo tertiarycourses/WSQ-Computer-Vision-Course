@@ -1,0 +1,16 @@
+#installation
+git clone https://github.com/ultralytics/yolov5  # clone
+cd yolov5
+pip install -r requirements.txt  # install
+
+
+#inference with detect.py
+python detect.py --source 0  #webcam
+
+
+### if there is a numpy error
+pip3 install --upgrade numpy  #need to upgrade the numpy
+
+
+LINKS
+https://github.com/ultralytics/yolov5

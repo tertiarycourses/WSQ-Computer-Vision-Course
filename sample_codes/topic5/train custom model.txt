@@ -1,0 +1,38 @@
+###install of labelImg
+https://tzutalin.github.io/labelImg/
+download linux_v1.4.3 
+unzip file
+#open terminal
+cd to linux_v1.4.3 directory
+sudo apt-get install pyqt5-dev-tools
+pip3 install labelImg
+labelImg
+
+### How to train your model
+Create a folder for train and validate folder
+Put training image and validate image to respective folder
+Use labelImg to box out object for detection
+***Note:The box out image should be save on the same folder as image***
+The saved image will come out as .xml file
+
+#Go to colab to train own model
+https://colab.research.google.com/github/khanhlvg/tflite_raspberry_pi/blob/main/object_detection/Train_custom_model_tutorial.ipynb
+Upload your file to the File folder on the top left
+###change this to your own custom training image
+train_data = object_detector.DataLoader.from_pascal_voc(
+    'android_figurine/train',
+    'android_figurine/train',
+    ['android', 'pig_android']
+)
+
+val_data = object_detector.DataLoader.from_pascal_voc(
+    'android_figurine/validate',
+    'android_figurine/validate',
+    ['android', 'pig_android']
+)
+
+###Exporting out the tflite file 
+change to the model name you want to export
+model.export(export_dir='.', tflite_filename='android.tflite')
+from File folder download the tflite file
+

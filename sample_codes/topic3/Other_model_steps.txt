@@ -1,0 +1,56 @@
+----------------------------------------------------------------image classification----------------------------------------------
+#open link and download tflite file
+https://tfhub.dev/tensorflow/lite-model/mobilenet_v2_1.0_224/1/metadata/1
+
+#copy file to /home/tertiary/examples/lite/examples/image_classification/raspberry_pi directory
+cp ~/Downloads/mobilenet_v2_1.0_224_1_metadata_1.tflite ~/examples/lite/examples/image_classification/raspberry_pi
+
+#chaning model
+change line 112
+from      default='efficientnet_lite0.tflite')
+to        default='mobilenet_v2_1.0_224_1_metadata_1.tflite')
+
+or 
+
+python classify --model mobilenet_v2_1.0_224_1_metadata_1.tflite
+
+
+---------------------------------------------------------------object detection -----------------------------------------------
+#open link and download tflite file
+https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/metadata/2
+#copy file to /home/tertiary/examples/lite/examples/object_detection/raspberry_pi directory
+cp ~/Downloads/lite-model_efficientdet_lite4_detection_metadata_2.tflite ~/examples/lite/examples/object_detection/raspberry_pi
+
+#chaning model
+line 109      
+from          default='efficientdet_lite0.tflite')
+to            default='lite-model_efficientdet_lite4_detection_metadata_2.tflite')
+
+or 
+
+python segment.py --model lite-model_efficientdet_lite4_detection_metadata_2.tflite
+
+---------------------------------------------------------------image segmatation------------------------------------
+#open link and download tflite file
+https://tfhub.dev/sayakpaul/lite-model/mobilenetv2-dm05-coco/int8/1 
+#copy file to /home/tertiary/examples/lite/examples/image_segmatation/raspberry_pi directory
+cp ~/Downloads/lite-model_mobilenetv2-dm05-coco_int8_1.tflite ~/examples/lite/examples/image_segmatation/raspberry_pi
+
+#chaning model
+line 179      
+from          default='deeplabv3.tflite')
+to            default='lite-model_mobilenetv2-dm05-coco_int8_1.tflite')
+
+or 
+
+python segment.py --model lite-model_mobilenetv2-dm05-coco_int8_1.tflite
+
+
+
+
+
+
+
+
+
+
